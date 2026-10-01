@@ -4,33 +4,31 @@ allow-lan: true
 mode: rule
 log-level: info
 proxies:
-- name: 🇧🇷 BR 01 - xiaohe
-  type: vmess
-  server: aksai.org
+- name: 🇵🇱 PL 01 - xiaohe
+  type: vless
+  server: 104.17.247.68
   port: 443
-  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
-  alterId: 0
-  cipher: auto
+  uuid: e6cc4788-3c45-4df1-94f3-8303504a65bf
   udp: true
   tls: true
   skip-cert-verify: true
-  servername: aksai.org
+  servername: khoda.ak-khoda.workers.dev
   network: ws
   ws-opts:
-    path: /linkvws
+    path: /sync
     headers:
-      Host: aksai.org
+      Host: khoda.ak-khoda.workers.dev
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
-  - 🇧🇷 BR 01 - xiaohe
+  - 🇵🇱 PL 01 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
   interval: 300
   proxies:
-  - 🇧🇷 BR 01 - xiaohe
+  - 🇵🇱 PL 01 - xiaohe
 rules:
 - MATCH,PROXIES
